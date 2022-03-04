@@ -35,7 +35,13 @@ function showInfos(){
     clima.querySelector('strong > p').innerHTML = weatherInfo.weather;
     
     const temperatura = document.querySelector('.temperature');
-    temperatura.querySelector('strong > p').innerHTML = weatherInfo.temp;
+    temperatura.querySelector('strong > p').innerHTML = weatherInfo.temp + '°C';
+
+    const temp_max = document.querySelector('.max-temperature');
+    temp_max.querySelector('strong > p').innerHTML = weatherInfo.maxTemp + '°C';
+
+    const temp_min = document.querySelector('.min-temperature');
+    temp_min.querySelector('strong > p').innerHTML = weatherInfo.minTemp + '°C';
 
 }
 
