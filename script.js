@@ -7,13 +7,6 @@ let search= document.querySelector(".search");
 
 requestWeatherData();
 
-function askLocation() {
-if (window.navigator.geolocation) {
-    window.navigator.geolocation
-  .getCurrentPosition(successfulLookup);
-   } 
-}
-
 function requestWeatherData(){
     const promisse = axios.get(urlWeatherData(-13.851, -40.0812));
     promisse.then((request) => {console.log('Resposta', request.data)});
@@ -31,14 +24,4 @@ search.addEventListener("click",()=>{
     content.classList.add("hidden");
 });
 
-askLocation();
-
-function successfulLookup(position){
-    LATITUDE = position.coords.latitude;
-    LONGITUDE = position.coords.longitude;
-    console.log(LATITUDE);
-    console.log(LONGITUDE);
-    //fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=1234`)
-    //.then(response => response.json());
-}
 
