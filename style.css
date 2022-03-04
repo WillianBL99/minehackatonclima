@@ -11,13 +11,15 @@ main{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-image:  linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 65%, #000000 100%), url("../assets/clima.jpg");
+    background-size: cover;
     background-color: rgb(170, 247, 221);
     min-width: 300px;
     margin: auto;
 }
 /*css do conteúdo inicial*/
 .content{
-    background-color: white;
+    background-color: rgb(255, 255, 255,0.9);
     width: 80%;
     min-height: 80vh;
     height: 100%;
@@ -33,13 +35,14 @@ button{
     height: 50px;
     border-radius: 30px;
     border: none;
-    box-shadow: inset 0px 0px 5px aquamarine;
-    background-color: aquamarine;
+    box-shadow: inset 0px 0px 5px rgb(5, 43, 255);
+    background-color: white;
 }
 .title{
     font-size: 40px;
     font-weight: 700;
     text-align: center;
+    color: rgb(5, 43, 255);
 }
 input{
     border-radius: 20px;
@@ -50,7 +53,7 @@ input{
     border: none;
     text-align: center;
     background-color: white;
-    box-shadow: inset 0px 0px 5px aquamarine;
+    box-shadow: inset 0px 0px 5px rgb(5, 43, 255);
 
 }
 .site-functions{
@@ -60,7 +63,7 @@ input{
 }
 /*css do resultado da busca*/
 .result{
-    background-color: white;
+    background-color: rgb(255, 255, 255,0.9);
     width: 80%;
     min-height: 80vh;
     height: 100%;
@@ -73,13 +76,21 @@ input{
     padding: 20px;
 
 }
+.result h2{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(5, 43, 255);
+}
 .information{
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
     height: 100%;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    overflow-x: auto;
 }
 .icon{
     display: flex;
@@ -87,11 +98,20 @@ input{
     font-size: 20px;
     margin-bottom: 30px;
 } 
-.weather, .temperature{
+.weather, .temperature,.min-temperature,.max-temperature{
     font-size: 20px;
     font-weight: 600;
     display: flex;
     justify-content: space-between;
+    text-align: center;
+}
+/*css query*/
+@media (max-width: 400px){
+    .weather, .temperature,.min-temperature,.max-temperature{
+        display: flex;
+        flex-direction: column;
+
+    }
 }
 /*css de controle*/
 .hidden{ 
