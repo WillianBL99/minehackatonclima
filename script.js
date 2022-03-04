@@ -14,10 +14,8 @@ const weatherInfo = {
 
 let search= document.querySelector(".search");
 
-requestWeatherData();
-
 function requestWeatherData(){
-    const promisse = axios.get(urlWeatherData(-13.851, -40.0812));
+    const promisse = axios.get(urlWeatherData(LATITUDE, LONGITUDE));
     promisse.then((request) => {console.log('Resposta', request.data)});
     promisse.catch((request) => {console.log('Deu erro', request)});
 }
@@ -48,12 +46,21 @@ function getLocation() {
     function showPosition(position) {
         LATITUDE = position.coords.latitude;
         LONGITUDE = position.coords.longitude;
-        alert(LATITUDE);
+        requestWeatherData();
     }
 
     function showError(error) {
         if(error.PERMISSION_DENIED){
-            alert("The User have denied the request for Geolocation.");
+            const zipcode = prompt("Qual o seu zip code?");
+            const promise = axios.get(`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode}&appid=${API_KEY}`);
+            promise.then(response => {
+                LATITUDE = response.lat;
+                LONGITUDE = response.long;
+            });
+            promise.catch(response => {
+                alert("Deu erro, insira seu zip code");
+                getLocation();
+            });
         }
     }
 
