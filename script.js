@@ -24,4 +24,24 @@ search.addEventListener("click",()=>{
     content.classList.add("hidden");
 });
 
+function getLocation() {
+    if (window.navigator.geolocation) {
+        window.navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("The Browser Does not Support Geolocation");
+    }
+}
+
+    function showPosition(position) {
+        LATITUDE = position.coords.latitude;
+        LONGITUDE = position.coords.longitude;
+    }
+
+    function showError(error) {
+        if(error.PERMISSION_DENIED){
+            alert("The User have denied the request for Geolocation.");
+        }
+    }
+
+    getLocation();
 
