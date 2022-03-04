@@ -48,6 +48,7 @@ function getLocation() {
     function showPosition(position) {
         LATITUDE = position.coords.latitude;
         LONGITUDE = position.coords.longitude;
+        alert(LATITUDE);
     }
 
     function showError(error) {
