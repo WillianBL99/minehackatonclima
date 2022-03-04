@@ -17,12 +17,26 @@ requestWeatherData();
 
 function requestWeatherData() {
     const promisse = axios.get(urlWeatherData(-13.851, -40.0812));
-    promisse.then(fillValues);
+    promisse.then(startWeatherInfo);
     promisse.catch((request) => { console.log('Deu erro', request) });
 }
 
 function urlWeatherData(lat, lon) {
     return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=pt_br`;
+}
+
+function startWeatherInfo(request){
+    fillValues(request);
+    showInfos();
+}
+
+function showInfos(){
+    const clima = document.querySelector('.weather');
+    clima.querySelector('strong > p').innerHTML = weatherInfo.weather;
+    
+    const temperatura = document.querySelector('.temperature');
+    temperatura.querySelector('strong > p').innerHTML = weatherInfo.temp;
+
 }
 
 function fillValues(request) {
