@@ -16,7 +16,6 @@ let search= document.querySelector(".search");
 
 requestWeatherData();
 
-
 function requestWeatherData(){
     const promisse = axios.get(urlWeatherData(-13.851, -40.0812));
     promisse.then((request) => {console.log('Resposta', request.data)});
