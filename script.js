@@ -28,8 +28,7 @@ function urlWeatherData(lat, lon) {
 function fillValues(request) {
     const weatherData = request.data;
     const mainData = weatherData.main;
-
-    console.log(weatherData);
+    
     weatherInfo.temp = mainData.feels_like;
     weatherInfo.maxTemp = mainData.temp_max;
     weatherInfo.minTemp = mainData.temp_min;
@@ -38,9 +37,6 @@ function fillValues(request) {
     weatherInfo.windSpeed = weatherData.wind.speed;
 
     weatherInfo.weather = weatherData.weather.shift().description;
-    console.log(weatherInfo.weather);
-
-    console.log(weatherInfo.temp);
 }
 
 search.addEventListener("click", () => {
